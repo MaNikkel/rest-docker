@@ -9,8 +9,8 @@ const app = express();
 // importa as rotas da agenda
 const agendaRoutes = require("./routes/agendaRoutes");
 // local que aponta para o banco de dados
-const URL = "mongodb://mongo:27017/agenda";
-//   "mongodb+srv://mnikkel-mongo:0204@cluster0-ob6d3.mongodb.net/agenda";
+const URL = //"mongodb://mongo:27017/agenda";
+  "mongodb+srv://mnikkel-mongo:0204@cluster0-ob6d3.mongodb.net/agenda";
 // usa o parser para json no app
 app.use(bodyParser.json());
 // define o acesso por CORS à aplicação
