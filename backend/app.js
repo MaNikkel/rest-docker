@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 const app = express();
 // importa as rotas da agenda
 const agendaRoutes = require("./routes/agendaRoutes");
+// importa as rotas de autenticação
+const authRoutes = require("./routes/authRoutes");
 // local que aponta para o banco de dados
 const URL = //"mongodb://mongo:27017/agenda";
   "mongodb+srv://mnikkel-mongo:0204@cluster0-ob6d3.mongodb.net/agenda";
@@ -25,6 +27,7 @@ app.use((req, res, next) => {
 });
 // usa as rotas próprias
 app.use("/agenda-rest", agendaRoutes);
+app.use("/auth-rest", authRoutes);
 
 //middlewere para lidar com erros
 app.use((error, req, res, next) => {
@@ -42,6 +45,6 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(4000);
+    app.listen(4002);
   })
   .catch(err => console.log(`ERROR IN CONNECTION WITH MONGOOSE::: ${err}`));
